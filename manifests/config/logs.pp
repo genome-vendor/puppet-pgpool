@@ -14,6 +14,11 @@
 #   String. Enabling this will result in all connections being logged.
 #   Defaults to <tt>off</tt>.
 #
+# [*log_hostname*]
+#   String. Enabling this will result in all connection logs including the
+#   source host and port.
+#   Defaults to <tt>off</tt>.
+#
 # [*log_statement*]
 #   String. Print out each query that is issued.
 #   Defaults to <tt>off</tt>.
@@ -65,6 +70,7 @@
 class pgpool::config::logs (
   $log_destination        = 'stderr',
   $log_connections        = 'off',
+  $log_hostname           = 'off',
   $log_statement          = 'off',
   $log_per_node_statement = 'off',
   $log_error_verbosity    = 'default',
@@ -78,6 +84,7 @@ class pgpool::config::logs (
   $logs_config = {
     'log_destination'        => { value => $log_destination },
     'log_connections'        => { value => $log_connections },
+    'log_hostname'           => { value => $log_hostname },
     'log_statement'          => { value => $log_statement },
     'log_per_node_statement' => { value => $log_per_node_statement },
     'log_standby_delay'      => { value => $log_standby_delay },

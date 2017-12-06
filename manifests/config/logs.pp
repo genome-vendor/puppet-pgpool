@@ -40,6 +40,9 @@
 # [*log_min_messages*]
 #   String. This controls the message levels that are emitted to log.
 #   Defaults to <tt>WARNING</tt>.
+# [*client_min_messages*]
+#   String. This controls the message levels that are emitted to the client.
+#   Defaults to <tt>NOTICE</tt>.
 #
 # [*syslog_facility*]
 #   String. This is the syslog facility to send the logs to.
@@ -76,6 +79,7 @@ class pgpool::config::logs (
   $log_error_verbosity    = 'default',
   $log_standby_delay      = 'if_over_threshold',
   $log_min_messages       = 'WARNING',
+  $client_min_messages    = 'NOTICE',
   $syslog_facility        = 'LOCAL0',
   $syslog_ident           = 'pgpool',
   $debug_level            = 0,
@@ -90,6 +94,7 @@ class pgpool::config::logs (
     'log_standby_delay'      => { value => $log_standby_delay },
     'log_error_verbosity'    => { value => $log_error_verbosity },
     'log_min_messages'       => { value => $log_min_messages },
+    'client_min_messages'    => { value => $client_min_messages },
     'syslog_facility'        => { value => $syslog_facility },
     'syslog_ident'           => { value => $syslog_ident },
     'debug_level'            => { value => $debug_level },
